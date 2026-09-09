@@ -56,3 +56,33 @@
 randomNumber=Math.floor(Math.random() * 100) + 1;
 
 const guessInput=document.getElementById("txtInputNumber");
+
+answerbar=document.getElementById("lblMessage");
+
+console.log(answerbar);
+
+
+
+
+
+function checkGuess() {
+    const NewguessInput=parseInt(guessInput.value); 
+
+    if (isNaN(NewguessInput) || NewguessInput < 1 || NewguessInput > 100) {
+        answerbar.textContent = "Please enter a valid number between 1 and 100.";
+        return;
+    }
+
+    else if (NewguessInput === randomNumber) {
+       answerbar.textContent = "Congratulations! You guessed the correct number: " + randomNumber;
+    }
+
+    else if (NewguessInput < randomNumber) {
+        answerbar.textContent = "Too low! Try again.";
+    }
+
+    else {
+        answerbar.textContent = "Too high! Try again.";
+    }
+
+}
